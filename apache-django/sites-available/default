@@ -1,0 +1,19 @@
+<VirtualHost *:80>
+	ServerAdmin webmaster@localhost
+
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+
+	# Possible values include: debug, info, notice, warn, error, crit,
+	# alert, emerg.
+	LogLevel warn
+
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+   	Alias /static/admin /usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin
+   	Alias /static /var/www/evaluate/evaluate/static
+
+   	<Directory "/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/">
+		AllowOverride None
+		Order allow,deny
+		Allow from all
+   	</Directory>
+</VirtualHost>
